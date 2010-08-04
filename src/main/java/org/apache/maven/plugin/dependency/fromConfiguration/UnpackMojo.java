@@ -42,7 +42,7 @@ import org.codehaus.plexus.util.StringUtils;
  * @goal unpack
  * @phase process-sources
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: UnpackMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  */
 public final class UnpackMojo
     extends AbstractFromConfigurationMojo

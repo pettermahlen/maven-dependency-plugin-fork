@@ -20,6 +20,7 @@ package org.apache.maven.plugin.dependency;
  */
 
 import java.io.File;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -36,7 +37,7 @@ import org.apache.maven.shared.dependency.analyzer.ProjectDependencyAnalyzerExce
  * Analyzes the dependencies of this project and produces a report that summarises which are: used and declared; used
  * and undeclared; unused and declared.
  * 
- * @version $Id$
+ * @version $Id: AnalyzeReportMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0-alpha-5
  * 
  * @goal analyze-report
@@ -108,7 +109,8 @@ public class AnalyzeReportMojo
         ProjectDependencyAnalysis analysis = null;
         try
         {
-            analysis = analyzer.analyze( project );
+            // TODO: add option to exclude from here too
+            analysis = analyzer.analyze( project, Collections.emptyList() );
         }
         catch ( ProjectDependencyAnalyzerException exception )
         {

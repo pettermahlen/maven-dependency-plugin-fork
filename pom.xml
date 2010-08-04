@@ -29,7 +29,7 @@ under the License.
   </parent>
   
   <artifactId>maven-dependency-plugin</artifactId>
-  <version>2.1</version>
+  <version>2.2.PM-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Maven Dependency Plugin</name>
@@ -162,7 +162,7 @@ under the License.
     <dependency>
       <groupId>org.apache.maven.shared</groupId>
       <artifactId>maven-dependency-analyzer</artifactId>
-      <version>1.1</version>
+      <version>1.2.PM-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.shared</groupId>

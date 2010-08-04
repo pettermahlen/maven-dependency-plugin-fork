@@ -26,7 +26,7 @@ import java.io.File;
  * project dependencies.
  * 
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: AbstractFromDependenciesMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  */
 public abstract class AbstractFromDependenciesMojo
     extends AbstractDependencyFilterMojo

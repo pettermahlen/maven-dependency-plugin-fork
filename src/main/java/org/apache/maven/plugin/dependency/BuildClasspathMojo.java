@@ -46,7 +46,7 @@ import org.codehaus.plexus.util.StringUtils;
  * @requiresDependencyResolution test
  * @phase generate-sources
  * @author ankostis
- * @version $Id$
+ * @version $Id: BuildClasspathMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0-alpha-2
  */
 public class BuildClasspathMojo

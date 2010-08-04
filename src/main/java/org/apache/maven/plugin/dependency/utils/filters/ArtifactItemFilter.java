@@ -28,7 +28,7 @@ import org.apache.maven.shared.artifact.filter.collection.ArtifactFilterExceptio
 
 /**
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: ArtifactItemFilter.java 728546 2008-12-21 22:56:51Z bentmann $
  */
 public interface ArtifactItemFilter
 {

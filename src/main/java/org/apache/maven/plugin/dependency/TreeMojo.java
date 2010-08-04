@@ -64,7 +64,7 @@ import org.apache.maven.shared.dependency.tree.traversal.SerializingDependencyNo
  * Displays the dependency tree for this project.
  * 
  * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a>
- * @version $Id$
+ * @version $Id: TreeMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0-alpha-5
  * @goal tree
  * @requiresDependencyResolution test

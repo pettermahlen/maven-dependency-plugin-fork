@@ -21,9 +21,7 @@ package org.apache.maven.plugin.dependency;
 
 import java.io.File;
 import java.io.StringWriter;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
@@ -40,7 +38,7 @@ import org.codehaus.plexus.util.xml.PrettyPrintXMLWriter;
  * and declared.
  * 
  * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a>
- * @version $Id$
+ * @version $Id: AbstractAnalyzeMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0-alpha-5
  */
 public abstract class AbstractAnalyzeMojo
@@ -129,6 +127,29 @@ public abstract class AbstractAnalyzeMojo
      */
     private File outputDirectory;
 
+
+
+    /**
+     * Enables checking of duplicate classes if true. Defaults to false.
+     *
+     * @parameter expression="${checkDuplicateClasses}" default-value=false
+     * @optional
+     * @since 2.2.PM
+     */
+    private boolean checkDuplicateClasses;
+
+    /**
+     * Comma-separated list of class name prefixes that should be excluded from duplicate class
+     * checking. As an example, "org.springframework, javax., java.lang.String" will exclude every class under a package
+     * whose name starts with "org.springframework" or "javax." as well as the String class. Defaults
+     * to the empty string, meaning that nothing is excluded.
+     *
+     * @parameter expression="${excludePrefixes}" default-value=""
+     * @optional
+     * @since 2.2.PM
+     */
+    private String excludePrefixes;
+
     // Mojo methods -----------------------------------------------------------
 
     /*
@@ -163,9 +184,12 @@ public abstract class AbstractAnalyzeMojo
         throws MojoExecutionException
     {
         ProjectDependencyAnalysis analysis;
+
+        List excludes = extractExcludes();
+
         try
         {
-            analysis = analyzer.analyze( project );
+            analysis = analyzer.analyze( project, excludes );
         }
         catch ( ProjectDependencyAnalyzerException exception )
         {
@@ -175,6 +199,7 @@ public abstract class AbstractAnalyzeMojo
         Set usedDeclared = analysis.getUsedDeclaredArtifacts();
         Set usedUndeclared = analysis.getUsedUndeclaredArtifacts();
         Set unusedDeclared = analysis.getUnusedDeclaredArtifacts();
+        Map duplicateClasses = analysis.getDuplicateClasses();
         
         if ( ignoreNonCompile )
         {
@@ -218,6 +243,13 @@ public abstract class AbstractAnalyzeMojo
             logArtifacts( unusedDeclared, true );
         }
 
+        if ( checkDuplicateClasses && !duplicateClasses.isEmpty() )
+        {
+            getLog().warn( "Duplicate class definitions found:" );
+
+            logDuplicateClasses( duplicateClasses );
+        }
+
         if ( outputXML )
         {
             writeDependencyXML( usedUndeclared );
@@ -229,6 +261,22 @@ public abstract class AbstractAnalyzeMojo
         }
 
         return !usedUndeclared.isEmpty() || !unusedDeclared.isEmpty();
+    }
+
+    private List extractExcludes() {
+        if ( this.excludePrefixes == null )
+        {
+            return Collections.emptyList();
+        }
+
+        String[] excludesArray = this.excludePrefixes.split(",");
+
+        for ( int i = 0 ; i < excludesArray.length ; i++ )
+        {
+            excludesArray[i] = excludesArray[i].trim();
+        }
+        
+        return Arrays.asList(excludesArray);
     }
 
     private void logArtifacts( Set artifacts, boolean warn )
@@ -258,6 +306,29 @@ public abstract class AbstractAnalyzeMojo
             }
         }
     }
+
+    private void logDuplicateClasses( Map duplicateClasses )
+    {
+        final List duplicateClassNames = new ArrayList( duplicateClasses.keySet() );
+        Collections.sort( duplicateClassNames );
+
+        for ( Iterator iterator = duplicateClassNames.iterator() ; iterator.hasNext(); )
+        {
+            String className = (String) iterator.next();
+
+            getLog().warn( "   " + className + " defined in: " );
+
+            Set artifacts = (Set) duplicateClasses.get( className );
+
+            for ( Iterator artifactIterator = artifacts.iterator() ; artifactIterator.hasNext(); )
+            {
+                Artifact artifact = (Artifact) artifactIterator.next();
+
+                getLog().warn( "      " + artifact );
+            }
+        }
+    }
+
 
     private void writeDependencyXML( Set artifacts )
     {

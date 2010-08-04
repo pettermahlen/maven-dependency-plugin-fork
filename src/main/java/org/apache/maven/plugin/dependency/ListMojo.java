@@ -25,7 +25,7 @@ import org.apache.maven.plugin.dependency.resolvers.ResolveDependenciesMojo;
  * Displays the list of dependencies for this project.
  * 
  * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a>
- * @version $Id$
+ * @version $Id: ListMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0-alpha-5
  * @goal list
  * @requiresDependencyResolution test

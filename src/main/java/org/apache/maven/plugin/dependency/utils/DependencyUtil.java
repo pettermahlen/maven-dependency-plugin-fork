@@ -33,7 +33,7 @@ import org.codehaus.plexus.util.StringUtils;
  * Utility class with static helper methods
  * 
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: DependencyUtil.java 728546 2008-12-21 22:56:51Z bentmann $
  */
 public final class DependencyUtil
 {

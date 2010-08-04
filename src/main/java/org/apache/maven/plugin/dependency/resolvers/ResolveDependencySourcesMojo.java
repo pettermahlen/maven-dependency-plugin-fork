@@ -38,7 +38,7 @@ import org.apache.maven.shared.artifact.filter.collection.ArtifactsFilter;
  * @phase generate-sources
  * @requiresDependencyResolution test
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: ResolveDependencySourcesMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0-alpha2
  */
 public class ResolveDependencySourcesMojo

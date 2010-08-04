@@ -45,7 +45,7 @@ import org.codehaus.plexus.util.StringUtils;
  * handle dependency filtering
  * 
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: AbstractDependencyFilterMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @see org.apache.maven.plugin.dependency.AbstractDependencyMojo
  */
 public abstract class AbstractDependencyFilterMojo

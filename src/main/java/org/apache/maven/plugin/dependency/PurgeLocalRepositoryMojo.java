@@ -56,7 +56,7 @@ import org.codehaus.plexus.util.FileUtils;
  * @since 2.0
  * @goal purge-local-repository
  * @aggregator
- * @version $Id$
+ * @version $Id: PurgeLocalRepositoryMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * 
  */
 public class PurgeLocalRepositoryMojo

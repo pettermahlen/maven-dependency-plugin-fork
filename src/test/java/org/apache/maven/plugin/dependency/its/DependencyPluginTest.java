@@ -25,7 +25,7 @@ package org.apache.maven.plugin.dependency.its;
  * Each test below just uses the tools to execute Maven on the named project with the passed in goals.
  * 
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a> Copied from the Eclipse AbstractEclipsePluginTestCase v2.4
- * @version $Id$
+ * @version $Id: DependencyPluginTest.java 728546 2008-12-21 22:56:51Z bentmann $
  */
 public class DependencyPluginTest
     extends AbstractDependencyPluginITCase

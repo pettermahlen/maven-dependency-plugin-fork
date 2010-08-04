@@ -34,7 +34,7 @@ import org.apache.maven.project.artifact.InvalidDependencyVersionException;
 
 /**
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: AbstractResolveMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * 
  */
 public abstract class AbstractResolveMojo

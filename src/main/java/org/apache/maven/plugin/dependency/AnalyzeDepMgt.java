@@ -48,7 +48,7 @@ import org.codehaus.plexus.util.StringUtils;
  * otherwise normal conditions.
  * 
  * @author <a href="mailto:brianefox@gmail.com">Brian Fox</a>
- * @version $Id$
+ * @version $Id: AnalyzeDepMgt.java 728546 2008-12-21 22:56:51Z bentmann $
  * @goal analyze-dep-mgt
  * @requiresDependencyResolution test
  * @since 2.0-alpha-3

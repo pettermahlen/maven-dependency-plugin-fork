@@ -31,7 +31,7 @@ import org.apache.maven.shared.dependency.tree.DependencyNode;
  * Tests <code>TreeMojo</code>.
  * 
  * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a>
- * @version $Id$
+ * @version $Id: TestTreeMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0
  */
 public class TestTreeMojo

@@ -45,7 +45,7 @@ import org.apache.maven.shared.artifact.filter.collection.ArtifactsFilter;
  * @requiresDependencyResolution test
  * @phase process-sources
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: CopyDependenciesMojo.java 731252 2009-01-04 13:11:57Z bentmann $
  * @since 1.0
  */
 public class CopyDependenciesMojo

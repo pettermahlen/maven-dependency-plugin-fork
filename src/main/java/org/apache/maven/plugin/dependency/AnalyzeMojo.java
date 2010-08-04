@@ -25,7 +25,7 @@ package org.apache.maven.plugin.dependency;
  * phase - use the <code>dependency:analyze-only</code> goal instead when participating in the build lifecycle.
  * 
  * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a>
- * @version $Id$
+ * @version $Id: AnalyzeMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0-alpha-3
  * @see AnalyzeOnlyMojo
  * 

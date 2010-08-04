@@ -40,7 +40,7 @@ import org.apache.maven.shared.artifact.filter.collection.ArtifactsFilter;
  * @goal resolve-plugins
  * @phase generate-sources
  * @author <a href="mailto:brianf@apache.org">Brian Fox</a>
- * @version $Id$
+ * @version $Id: ResolvePluginsMojo.java 728546 2008-12-21 22:56:51Z bentmann $
  * @since 2.0
  */
 public class ResolvePluginsMojo
